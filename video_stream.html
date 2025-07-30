@@ -8,8 +8,15 @@
   <body>
     <video
       id="video"
-      style="background: black; width: 320px; height: 240px"
+      autoplay
+      style="background: black; width: 640px; height: 480px"
     ></video>
-    <script></script>
+    <script>
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: false })
+        .then((stream) => {
+          video.srcObject = stream;
+        });
+    </script>
   </body>
 </html>
